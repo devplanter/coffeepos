@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/WEB-INF/decorators">
+	<!-- exclude from template -->
+	<excludes>
+		<pattern>/api/v1/*</pattern>
+		<pattern>/assets/*</pattern>
+		<pattern>/images/*</pattern>
+		<pattern>/upload/*</pattern>
+		<pattern>/index.jsp</pattern>
+		<pattern>/index.htm</pattern>
+		<pattern>/index.html</pattern>
+	</excludes>
+
+	<!-- login template -->
+	<decorator name="login" page="login.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+
+	<!-- admin template -->
+	<decorator name="admin" page="admin.jsp">
+		<pattern>/admin/*</pattern>
+	</decorator>
+
+	<!-- point of sale template -->
+	<decorator name="sales" page="sales.jsp">
+		<pattern>/sales/*</pattern>
+	</decorator>
+</decorators>

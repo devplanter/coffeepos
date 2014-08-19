@@ -1,0 +1,65 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" language="java"%>
+<%@ taglib prefix="s" uri="struts-tags"%>
+
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
+</head>
+<body>
+
+	<div class="logo-box">
+		<div class="head-text">CoffeePOS</div>
+		<div class="subl-text">A Superb Point of Sale Platform</div>
+	</div>
+
+	<div class="login-box">
+		<div class="login-form">
+			<table class="table-form">
+				<tr>
+					<td>
+						<div class="caption">Username</div> <input type="text" name="username" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="caption">Password</div> <input type="password" name="username" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td><a href="home.action" class="btn btn-primary" style="width: 100%">Login</a></td>
+				</tr>
+			</table>
+			<div class="login-label">
+				<a href="#">Forgot your password?</a>
+			</div>
+		</div>
+		<div class="numpad-form">
+			<div class="callout border-callout">
+				<table class="table-numpad">
+					<tr>
+						<td><a href="#" class="btn btn-default" style="width: 100%">1</a></td>
+						<td><a href="#" class="btn btn-default" style="width: 100%">2</a></td>
+						<td><a href="#" class="btn btn-default" style="width: 100%">3</a></td>
+					</tr>
+					<tr>
+						<td><a href="#" class="btn btn-default" style="width: 100%">4</a></td>
+						<td><a href="#" class="btn btn-default" style="width: 100%">5</a></td>
+						<td><a href="#" class="btn btn-default" style="width: 100%">6</a></td>
+					</tr>
+					<tr>
+						<td><a href="#" class="btn btn-default" style="width: 100%">7</a></td>
+						<td><a href="#" class="btn btn-default" style="width: 100%">8</a></td>
+						<td><a href="#" class="btn btn-default" style="width: 100%">9</a></td>
+					</tr>
+					<tr>
+						<td><a href="#" class="btn btn-default" style="width: 100%">0</a></td>
+						<td><a href="#" class="btn btn-success" style="width: 100%">OK</a></td>
+						<td><a href="#" class="btn btn-danger" style="width: 100%">Clear</a></td>
+					</tr>
+				</table>
+				<b class="border-notch notch"></b> <b class="notch"></b>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

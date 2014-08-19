@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.custom.i18n.resources" value="coffeeLabels" />
+	<constant name="struts.locale" value="th_TH" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.maxSize" value="5242880" />
+	<constant name="struts.action.excludePattern" value="/api/v1/.*" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="params" />
+			</interceptor-stack>
+		</interceptors>
+
+		<action name="login" class="com.dp.coffee.action.LoginAction">
+			<result name="success">/jsp/login.jsp</result>
+		</action>
+
+		<action name="authen" class="com.dp.coffee.action.LoginAction" method="authen">
+			<result name="success">/jsp/login.jsp</result>
+			<result name="error">/jsp/login.jsp</result>
+		</action>
+
+		<action name="home" class="com.dp.coffee.action.HomeAction">
+			<result name="success">/jsp/home.jsp</result>
+		</action>
+
+		<action name="pos" class="com.dp.coffee.action.PosAction">
+			<result name="success">/jsp/pos/pos.jsp</result>
+		</action>
+	</package>
+</struts>

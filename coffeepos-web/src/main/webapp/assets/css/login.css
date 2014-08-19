@@ -1,0 +1,114 @@
+/* reset element */
+h1,h2,h3,h4,h5,ul,li,hr,p,form {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body {
+	background-color: #eee;
+}
+
+/* form style */
+.form-control,.btn {
+	border-radius: 3px !important;
+}
+
+.form-control:focus {
+	outline: none;
+	box-shadow: none;
+}
+/* login box */
+.login-box {
+	width: 480px;
+	overflow: hidden;
+	margin: 0 auto;
+	margin-top: 80px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
+.login-box .login-label {
+	padding: 10px 20px 20px 20px;
+}
+
+/**/
+.login-form {
+	float: left;
+	width: 50%;
+	padding-top: 20px;
+}
+
+.login-form .table-form {
+	width: 100%;
+}
+
+.login-form .table-form tr td {
+	padding: 0 20px;
+}
+
+.login-form .table-form tr:last-child td {
+	padding: 10px 20px;
+}
+
+/**/
+.numpad-form {
+	float: left;
+	width: 50%;
+}
+
+.numpad-form .table-numpad {
+	width: 100%;
+}
+
+.numpad-form .table-numpad tr td {
+	padding: 2px;
+	width: 33.3%;
+}
+
+.numpad-form .table-numpad .btn {
+	padding: 12px 0;
+}
+
+/* callout */
+.callout {
+	position: relative;
+	padding: 20px;
+	background-color: #f5f5f5;
+}
+
+.callout .notch {
+	position: absolute;
+	left: -10px;
+	top: 45px;
+	margin: 0;
+	border-top: 10px solid transparent;
+	border-left: 0;
+	border-right: 10px solid #f5f5f5;
+	border-bottom: 10px solid transparent;
+}
+
+.border-callout {
+	border-left: 1px solid #ddd;
+}
+
+.border-callout .border-notch {
+	border-right-color: #ddd;
+	left: -11px;
+}
+
+/* logo box */
+.logo-box {
+	width: 480px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.logo-box .head-text {
+	font-size: 40px;
+	letter-spacing: -4px;
+}
+
+.logo-box .subl-text {
+	font-size: 16px;
+}
