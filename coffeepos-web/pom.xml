@@ -52,13 +52,6 @@
 			<version>2.4.2</version>
 		</dependency>
 
-		<!-- coffeepos-ejb -->
-		<dependency>
-			<groupId>com.dp.coffee</groupId>
-			<artifactId>coffeepos-ejb</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
 		<!-- jersey -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
