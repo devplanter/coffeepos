@@ -23,7 +23,7 @@ body {
 	width: 480px;
 	overflow: hidden;
 	margin: 0 auto;
-	margin-top: 80px;
+	margin-top: 50px;
 	background-color: #fff;
 	border: 1px solid #ccc;
 }
@@ -88,12 +88,22 @@ body {
 	border-bottom: 10px solid transparent;
 }
 
+.callout .notch-username {
+	top: 45px;
+	transition: all 0.5s ease;
+}
+
+.callout .notch-password {
+	top: 100px;
+	transition: all 0.5s ease;
+}
+
 .border-callout {
-	border-left: 1px solid #ddd;
+	border-left: 1px solid #ccc;
 }
 
 .border-callout .border-notch {
-	border-right-color: #ddd;
+	border-right-color: #ccc;
 	left: -11px;
 }
 

@@ -15,13 +15,13 @@
 			</div>
 			<!-- user information -->
 			<div class="sidebar-profile">
-				<img src="assets/img/photo.jpg">
+				<img src="${pageContext.request.contextPath}/assets/img/photo.jpg">
 				<div class="profile-head"><a href="#">(0012) John Doe</a></div>
 				<div class="profile-subl">Sale Manager</div>
 			</div>
 			<!-- sidebar menu -->
 			<ul class="sidebar-menu">
-				<li><a href="login.action"><i class="fa fa-power-off"></i>Logout</a></li>
+				<li><a href="../logout.action"><i class="fa fa-power-off"></i>Logout</a></li>
 			</ul>
 		</div>
 		

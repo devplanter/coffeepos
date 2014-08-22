@@ -23,13 +23,59 @@
 				<interceptor-ref name="staticParams" />
 				<interceptor-ref name="params" />
 			</interceptor-stack>
+
+			<interceptor-stack name="retrieveStoreStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">RETRIEVE</param>
+				</interceptor-ref>
+				<interceptor-ref name="store">
+					<param name="operationMode">STORE</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="retrieveStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">RETRIEVE</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="storeStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">STORE</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
 		</interceptors>
 
+
+		<!-- global results -->
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">login</param>
+			</result>
+		</global-results>
+
+
 		<action name="login" class="com.dp.coffee.action.LoginAction">
+			<interceptor-ref name="store">
+				<param name="operationMode">RETRIEVE</param>
+			</interceptor-ref>
 			<result name="success">/jsp/login.jsp</result>
+			<result name="error">/jsp/login.jsp</result>
 		</action>
 
 		<action name="authen" class="com.dp.coffee.action.LoginAction" method="authen">
+			<result name="home" type="redirectAction">
+				<param name="actionName">home/home</param>
+				<param name="sessionId">${sessionId}</param>
+			</result>
+			<result name="login">/jsp/login.jsp</result>
+			<result name="error">/jsp/login.jsp</result>
+		</action>
+
+		<action name="logout" class="com.dp.coffee.action.Logout">
 			<result name="success">/jsp/login.jsp</result>
 			<result name="error">/jsp/login.jsp</result>
 		</action>

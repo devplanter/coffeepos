@@ -16,11 +16,16 @@
 
 package com.dp.coffee.action;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.dp.coffee.entity.User;
 import com.dp.coffee.facade.LoginFacade;
 import com.google.inject.Inject;
 
 public class LoginAction extends BaseAction {
+	private Log log = LogFactory.getLog(LoginAction.class);
+
 	@Inject
 	private LoginFacade loginFacade;
 
@@ -32,12 +37,15 @@ public class LoginAction extends BaseAction {
 	}
 
 	public String authen() {
+		log.debug("username=" + username);
+		log.debug("password=" + password);
+
 		User user = loginFacade.authenticate(username, password);
 		if (user == null) {
-			addActionError("Login failed!");
-			return ERROR;
+			addActionError("Username or Password is invalid!");
+			return LOGIN;
 		}
-		return SUCCESS;
+		return HOME;
 	}
 
 	public String getUsername() {

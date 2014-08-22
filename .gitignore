@@ -1,0 +1,5 @@
+coffeepos-ejb/target/
+coffeepos-web/target/
+.settings/
+.classpath/
+.project
