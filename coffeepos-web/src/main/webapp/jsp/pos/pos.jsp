@@ -1,9 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" language="java"%>
 <%@ taglib prefix="s" uri="struts-tags"%>
 
-<html>
+<html ng-app>
 <head>
+	<title>Test</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/pos.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/pos.js"></script>
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-static-top">
@@ -73,12 +75,19 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container" ng-controller="PosController">
 		<div class="row">
 			<div class="col-md-7">
-				<div class="product-box">
-					<ul class="product">
-						<li>
+				<div class="product-box" >
+					<ul class="product" ng-repeat="item in items">
+						<li ng-click="addBillItem($index)">
+							<img src="../{{item.image}}">
+							<div class="detail">
+								<div class="price">{{item.price}}$</div>
+								<div class="title">{{item.productName}}</div>
+							</div>
+						</li>
+						<!-- <li>
 							<img src="../img/01.jpg">
 							<div class="detail">
 								<div class="price">35$</div>
@@ -189,7 +198,8 @@
 								<div class="price">40$</div>
 								<div class="title">Vanilla Creme</div>
 							</div>
-						</li>
+						</li> -->
+						
 					</ul>
 				</div>
 			</div>
@@ -214,14 +224,14 @@
 								<td></td>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody ng-repeat="billitem in bills">
 							<tr>
-								<td>Cappuccino Hot</td>
+								<td>{{billitem.productName}}</td>
 								<td>1</td>
-								<td class="bill-price">$35</td>
-								<td><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+								<td class="bill-price">{{billitem.price}}</td>
+								<td><a href="#" class="btn btn-danger" ng-click="removeBillItem($index)"><i class="fa fa-times"></i></a></td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>Rum Rasin (S)</td>
 								<td>2</td>
 								<td class="bill-price">$125</td>
@@ -238,22 +248,22 @@
 								<td>1</td>
 								<td class="bill-price">$35</td>
 								<td><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 					<!-- bill total -->
 					<table id="bill-total">
 						<tr>
 							<td>Tax (7%)</td>
-							<td>12.50</td>
+							<td>{{getTotalVat()}}</td>
 						</tr>
 						<tr>
 							<td>Discount (10%)</td>
-							<td>100.75</td>
+							<td>0</td>
 						</tr>
 						<tr>
 							<td>Total (Baht)</td>
-							<td>1,500.60</td>
+							<td>{{netPrice()}}</td>
 						</tr>
 					</table>
 				</div>

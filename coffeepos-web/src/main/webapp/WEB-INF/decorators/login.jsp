@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="struts-tags"%>
 
 <!doctype html>
-<html>
+<html ng-app>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
