@@ -19,5 +19,11 @@ package com.dp.coffee.action;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport {
-	/* common base action */
+	public static final String LOGIN = "login";
+	public static final String ADMIN = "admin";
+	public static final String HOME = "home";
+
+	public BaseAction() {
+		clearErrorsAndMessages();
+	}
 }
