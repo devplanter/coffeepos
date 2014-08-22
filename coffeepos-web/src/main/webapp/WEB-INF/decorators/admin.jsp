@@ -14,12 +14,9 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/angular.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
+	<decorators:head />
 </head>
 <body>
-	<div class="navbar navbar-default navbar-static-top">
-		<div class="container"></div>
-	</div>
-
 	<div class="container">
 		<decorators:body />
 	</div>
