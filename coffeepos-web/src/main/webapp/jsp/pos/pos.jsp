@@ -81,125 +81,12 @@
 				<div class="product-box" >
 					<ul class="product" ng-repeat="item in items">
 						<li ng-click="addBillItem($index)">
-							<img src="../{{item.image}}">
+							<img src="${pageContext.request.contextPath}{{item.image}}">
 							<div class="detail">
 								<div class="price">{{item.price}}$</div>
 								<div class="title">{{item.productName}}</div>
 							</div>
 						</li>
-						<!-- <li>
-							<img src="../img/01.jpg">
-							<div class="detail">
-								<div class="price">35$</div>
-								<div class="title">Cuppuccino Cold</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/02.jpg">
-							<div class="detail">
-								<div class="price">40$</div>
-								<div class="title">Latte Cream</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/03.jpg">
-							<div class="detail">
-								<div class="price">55$</div>
-								<div class="title">Ice Coffee</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/04.jpg">
-							<div class="detail">
-								<div class="price">35$</div>
-								<div class="title">Chocko Ship</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/05.jpg">
-							<div class="detail">
-								<div class="price">50$</div>
-								<div class="title">Coffee Rum</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/06.jpg">
-							<div class="detail">
-								<div class="price">70$</div>
-								<div class="title">Coffee Ice</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/07.jpg">
-							<div class="detail">
-								<div class="price">180$</div>
-								<div class="title">Rum Rasin (S)</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/08.jpg">
-							<div class="detail">
-								<div class="price">120$</div>
-								<div class="title">Almond Rotta</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/09.jpg">
-							<div class="detail">
-								<div class="price">40$</div>
-								<div class="title">Rosetta Creame</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/10.jpg">
-							<div class="detail">
-								<div class="price">42$</div>
-								<div class="title">Chock Ship</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/11.jpg">
-							<div class="detail">
-								<div class="price">40$</div>
-								<div class="title">Vanilla Creme</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/07.jpg">
-							<div class="detail">
-								<div class="price">180$</div>
-								<div class="title">Rum Rasin (XL)</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/08.jpg">
-							<div class="detail">
-								<div class="price">120$</div>
-								<div class="title">Almond Rotta</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/09.jpg">
-							<div class="detail">
-								<div class="price">40$</div>
-								<div class="title">Rosetta Creame</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/08.jpg">
-							<div class="detail">
-								<div class="price">42$</div>
-								<div class="title">Chock Duo</div>
-							</div>
-						</li>
-						<li>
-							<img src="../img/03.jpg">
-							<div class="detail">
-								<div class="price">40$</div>
-								<div class="title">Vanilla Creme</div>
-							</div>
-						</li> -->
-						
 					</ul>
 				</div>
 			</div>

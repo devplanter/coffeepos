@@ -7,8 +7,8 @@ function PosController($scope){
 	//$scope.totalVat = 0.0;
 	$scope.bills = [];
 	$scope.items = [
-	    {productName:"Cuppuccino Cold", price:30, vat:0.07, image:"img/01.jpg"},
-	    {productName:"Latte cream", price:40, vat:0.07, image:"img/02.jpg"}
+	    {productName:"Cuppuccino Cold", price:30, vat:0.07, image:"/img/01.jpg"},
+	    {productName:"Latte cream", price:40, vat:0.07, image:"/img/02.jpg"}
 	];
 	
 	$scope.addBillItem = function(index){
