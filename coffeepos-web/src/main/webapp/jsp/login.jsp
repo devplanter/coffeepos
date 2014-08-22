@@ -10,6 +10,7 @@
 			width: 480px;
 			margin: 0 auto;
 			margin-top: 40px;
+			height: 40px;
 		}
 	</style>
 </head>
@@ -21,14 +22,16 @@
 
 	<div class="message">
 		<s:if test="hasActionErrors()">
-			<div class="errors">
-				<s:actionerror/>
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">x<span class="sr-only">Close</span></button>
+  				<s:actionerror/>
 			</div>
 		</s:if>
 		
 		<s:if test="hasActionMessages()">
-		   <div class="welcome">
-		      <s:actionmessage/>
+		   <div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">x<span class="sr-only">Close</span></button>
+				<s:actionmessage/>
 		   </div>
 		</s:if>
 	</div>
@@ -39,12 +42,12 @@
 			<table class="table-form">
 				<tr>
 					<td>
-						<div class="caption">Username</div> <input type="text" id="username" name="username" class="form-control" value="admin">
+						<div class="caption">Username</div> <input type="text" id="username" name="username" class="form-control">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<div class="caption">Password</div> <input type="password" id="password" name="password" class="form-control" value="1234">
+						<div class="caption">Password</div> <input type="password" id="password" name="password" class="form-control">
 					</td>
 				</tr>
 				<tr>
