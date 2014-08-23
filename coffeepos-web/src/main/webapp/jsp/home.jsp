@@ -21,7 +21,7 @@
 			</div>
 			<!-- sidebar menu -->
 			<ul class="sidebar-menu">
-				<li><a href="../logout.action"><i class="fa fa-power-off"></i>Logout</a></li>
+				<li><a href="../logout.action?sessionId=${sessionId}&userId=${userId}"><i class="fa fa-power-off"></i>Logout</a></li>
 			</ul>
 		</div>
 		

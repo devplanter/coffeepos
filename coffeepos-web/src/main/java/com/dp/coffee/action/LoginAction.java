@@ -21,6 +21,8 @@ import org.apache.commons.logging.LogFactory;
 
 import com.dp.coffee.entity.User;
 import com.dp.coffee.facade.LoginFacade;
+import com.dp.coffee.util.StringUtil;
+import com.dp.coffee.util.UniqueId;
 import com.google.inject.Inject;
 
 public class LoginAction extends BaseAction {
@@ -42,10 +44,32 @@ public class LoginAction extends BaseAction {
 
 		User user = loginFacade.authenticate(username, password);
 		if (user == null) {
-			addActionError("Username or Password is invalid!");
+			addActionError("Incorrect Username or Password!");
 			return LOGIN;
 		}
+
+		this.userId = user.getUserId();
+		this.sessionId = UniqueId.generateUniqueId(new String[] { this.username });
+		log.debug("sessionId=" + this.sessionId);
+
+		loginFacade.createSession(sessionId, user);
+		log.debug("create session is completed successfully");
+
+		this.sessionBean = loginFacade.getSession(sessionId, userId);
+		log.debug("sessionBean=" + sessionBean);
+
+		if (this.sessionBean == null) {
+			addActionError("User session is invalidated.");
+			return LOGIN;
+		}
+
 		return HOME;
+	}
+
+	public void validate() {
+		if ((StringUtil.isEmpty(this.username)) || (StringUtil.isEmpty(this.password))) {
+			addActionError("Invalid Username or Password!");
+		}
 	}
 
 	public String getUsername() {
