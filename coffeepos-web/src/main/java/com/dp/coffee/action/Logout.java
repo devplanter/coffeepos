@@ -11,9 +11,20 @@ public class Logout extends BaseAction {
 	private LoginFacade loginFacade;
 
 	public String execute() {
-		clearErrorsAndMessages();
+		if (checkSession() == null) {
+			return LOGIN;
+		}
+
+		// logout
 		loginFacade.destroySession(sessionId, userId);
+
+		// release session
 		ServletActionContext.getRequest().getSession().invalidate();
+
+		// clear message
+		clearErrorsAndMessages();
+
+		// return flash message
 		addActionMessage("User has been logged out");
 		return SUCCESS;
 	}

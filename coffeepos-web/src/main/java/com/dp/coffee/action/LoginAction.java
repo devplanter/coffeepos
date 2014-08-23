@@ -18,12 +18,14 @@ package com.dp.coffee.action;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.ServletActionContext;
 
 import com.dp.coffee.entity.User;
 import com.dp.coffee.facade.LoginFacade;
 import com.dp.coffee.util.StringUtil;
 import com.dp.coffee.util.UniqueId;
 import com.google.inject.Inject;
+import com.opensymphony.xwork2.ActionContext;
 
 public class LoginAction extends BaseAction {
 	private Log log = LogFactory.getLog(LoginAction.class);
@@ -52,7 +54,13 @@ public class LoginAction extends BaseAction {
 		this.sessionId = UniqueId.generateUniqueId(new String[] { this.username });
 		log.debug("sessionId=" + this.sessionId);
 
-		loginFacade.createSession(sessionId, user);
+		String ipAddress = ServletActionContext.getRequest().getHeader("X-FORWARDED-FOR");
+		if (ipAddress == null) {
+			ipAddress = ServletActionContext.getRequest().getRemoteAddr();
+		}
+		log.debug("client ip address=" + ipAddress);
+
+		loginFacade.createSession(sessionId, user, ipAddress);
 		log.debug("create session is completed successfully");
 
 		this.sessionBean = loginFacade.getSession(sessionId, userId);

@@ -40,14 +40,16 @@ public class LoginFacade {
 	@Inject
 	private UserSessionService userSessionService;
 
+	/**
+	 * Login authentication
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	@Transactional
 	public User authenticate(final String username, final String password) {
 		return userService.findByUsername(username, password);
-	}
-
-	@Transactional
-	public UserSession saveUserSession(final UserSession userSession) {
-		return userSessionService.create(userSession);
 	}
 
 	/**
@@ -57,7 +59,8 @@ public class LoginFacade {
 	 * @param user
 	 * @return
 	 */
-	public SessionBean createSession(final String sessionId, final User user) {
+	@Transactional
+	public SessionBean createSession(final String sessionId, final User user, String ipAddress) {
 		int userId = user.getUserId();
 		String userName = user.getUsername();
 		String password = user.getPassword();
@@ -80,21 +83,21 @@ public class LoginFacade {
 		String sessionBeanData = SerializeUtil.serialize(beans);
 		if (sessionBeanData != null) {
 			UserSession us = new UserSession();
-			us.setIpAddress("");
+			us.setIpAddress(ipAddress);
 			us.setIsActive("Y");
 			us.setLoginDate(new Date());
 			us.setAliveDate(new Date());
 			us.setSessionData(sessionBeanData);
 			us.setSessionId(sessionId);
 			us.setUserId(userId);
-			saveUserSession(us);
+			userSessionService.create(us);
 		}
 
 		return beans;
 	}
 
 	/**
-	 * Retrive the user session that stored from database
+	 * Retrieve the user session that stored from database
 	 * 
 	 * @param sessionId
 	 * @param userId
@@ -129,6 +132,12 @@ public class LoginFacade {
 		return null;
 	}
 
+	/**
+	 * Destroying a session
+	 * 
+	 * @param sessionId
+	 * @param userId
+	 */
 	@Transactional
 	public void destroySession(final String sessionId, final int userId) {
 		UserSession userSession = userSessionService.findBySession(sessionId, userId);

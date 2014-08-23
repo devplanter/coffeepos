@@ -17,9 +17,12 @@
 package com.dp.coffee.action;
 
 public class HomeAction extends BaseAction {
-	
+
 	public String execute() {
+		if (checkSession() == null) {
+			return LOGIN;
+		}
 		return SUCCESS;
 	}
-	
+
 }

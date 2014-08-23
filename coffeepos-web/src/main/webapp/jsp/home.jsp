@@ -7,38 +7,33 @@
 </head>
 <body>
 	<div id="wrapper">
-		<!-- sidebar wrapper -->
-		<div id="sidebar-wrapper">
-			<!-- company logo -->
-			<div class="sidebar-logo">
-				<a href="#">Startbucks Coffee</a>
-			</div>
-			<!-- user information -->
-			<div class="sidebar-profile">
-				<img src="${pageContext.request.contextPath}/assets/img/photo.jpg">
-				<div class="profile-head"><a href="#">(0012) John Doe</a></div>
-				<div class="profile-subl">Sale Manager</div>
-			</div>
-			<!-- sidebar menu -->
-			<ul class="sidebar-menu">
-				<li><a href="../logout.action?sessionId=${sessionId}&userId=${userId}"><i class="fa fa-power-off"></i>Logout</a></li>
-			</ul>
-		</div>
-		
 		<!-- content wrapper -->
 		<div id="content-wrapper">
 			<!-- navbar -->
 			<div class="navbar navbar-inverse navbar-static-top">
 				<div class="container">
-					<div class="navbar-icon"><a href="#"><i class="fa fa-bars"></i></a></div>
-					<div class="navbar-title">Your Applications</div>
-				</div>
+					<div class="navbar-header">
+						<a href="#" class="navbar-brand">Startbucks Coffee</a>
+					</div>
+					
+					<div class="collapse navbar-collapse">
+						<div class="pull-right">
+							<div class="navbar-text">
+								<a href="#">John Doe</a>
+							</div>
+							
+							<div class="navbar-text">
+								<a href="logout.action?sessionId=${sessionId}&userId=${userId}"><i class="fa fa-power-off"></i> Logout</a>
+							</div>
+						</div>
+					</div>
+				</div>				
 			</div>
 			<!-- main -->
 			<div class="container">
 				<div class="app-panel">
 					<ul class="app">
-						<li><a href="pos/pos.action"><div class="app-icon red"><i class="fa fa-shopping-cart"></i></div><p class="app-label">Point of Sale</p></a></li>
+						<li><a href="pos/pos.action?sessionId=${sessionId}&userId=${userId}"><div class="app-icon red"><i class="fa fa-shopping-cart"></i></div><p class="app-label">Point of Sale</p></a></li>
 						<li><a href="#"><div class="app-icon black"><i class="fa fa-inbox"></i></div><p class="app-label">Products</p></a></li>
 						<li><a href="#"><div class="app-icon blue"><i class="fa fa-users"></i></div><p class="app-label">Customers</p></a></li>
 					</ul>
