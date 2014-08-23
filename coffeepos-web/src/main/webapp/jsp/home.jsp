@@ -33,7 +33,7 @@
 			<div class="container">
 				<div class="app-panel">
 					<ul class="app">
-						<li><a href="pos/pos.action"><div class="app-icon red"><i class="fa fa-shopping-cart"></i></div><p class="app-label">Point of Sale</p></a></li>
+						<li><a href="pos/pos.action?sessionId=${sessionId}&userId=${userId}"><div class="app-icon red"><i class="fa fa-shopping-cart"></i></div><p class="app-label">Point of Sale</p></a></li>
 						<li><a href="#"><div class="app-icon black"><i class="fa fa-inbox"></i></div><p class="app-label">Products</p></a></li>
 						<li><a href="#"><div class="app-icon blue"><i class="fa fa-users"></i></div><p class="app-label">Customers</p></a></li>
 					</ul>
