@@ -16,14 +16,44 @@
 
 package com.dp.coffee.action;
 
+import com.dp.coffee.entity.SessionBean;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport {
+	public static final String HOME = "home";
 	public static final String LOGIN = "login";
 	public static final String ADMIN = "admin";
-	public static final String HOME = "home";
+	
+	public SessionBean sessionBean;
+	public String sessionId;
+	public int userId;
 
 	public BaseAction() {
 		clearErrorsAndMessages();
 	}
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
+
+	public SessionBean getSessionBean() {
+		return sessionBean;
+	}
+
+	public void setSessionBean(SessionBean sessionBean) {
+		this.sessionBean = sessionBean;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 }
