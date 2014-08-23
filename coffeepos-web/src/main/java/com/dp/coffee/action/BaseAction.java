@@ -49,7 +49,6 @@ public class BaseAction extends ActionSupport {
 			log.debug("session is valid");
 			sessionBean = bean;
 		} else {
-			clearErrorsAndMessages();
 			addActionError("Session is invalidate");
 		}
 		return bean;
