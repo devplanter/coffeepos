@@ -13,6 +13,7 @@
 		<class>com.dp.coffee.entity.Site</class>
 		<class>com.dp.coffee.entity.Status</class>
 		<class>com.dp.coffee.entity.User</class>
+		<class>com.dp.coffee.entity.UserSession</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
