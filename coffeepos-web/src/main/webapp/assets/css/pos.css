@@ -17,6 +17,10 @@ body {
 	color: #eee !important;
 }
 
+.navbar-text {
+	padding: 0 20px;
+}
+
 /**/
 .btn {
 	border-radius: 3px;

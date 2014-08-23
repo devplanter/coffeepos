@@ -10,7 +10,7 @@
 <body>
 	<div class="navbar navbar-inverse navbar-static-top">
 		<div class="container">
-			<div class="col-md-7">
+			<div class="col-md-6">
 				<!-- navbar list -->
 				<ul class="navbar-section">
 					<li>
@@ -24,15 +24,25 @@
 					<li><a href="#" class="btn btn-success"><i class="fa fa-plus"></i></a></li>
 				</ul>
 			</div>
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<!-- date timer -->
-				<div class="timer">
+				<div class="timer pull-left">
 					<div class="date"><i class="fa fa-clock-o"></i> Sun 12th Apr 2014</div>
 					<p class="time">13:01 PM</p>
 				</div>
 				<!-- profile -->
-				<div class="navbar-text pull-left">
-					<a href="#">John Doe</a>
+				<div class="pull-right">
+					<div class="navbar-text">
+						<a href="../home/home.action?sessionId=${sessionId}&userId=${userId}"><i class="fa fa-home"></i></a>
+					</div>
+				
+					<div class="navbar-text">
+						<a href="#">John Doe</a>
+					</div>
+					
+					<div class="navbar-text">
+						<a href="../logout.action?sessionId=${sessionId}&userId=${userId}"><i class="fa fa-power-off"></i> Logout</a>
+					</div>
 				</div>
 			</div>
 		</div>
