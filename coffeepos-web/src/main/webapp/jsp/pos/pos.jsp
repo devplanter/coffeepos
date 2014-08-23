@@ -79,8 +79,8 @@
 		<div class="row">
 			<div class="col-md-7">
 				<div class="product-box" >
-					<ul class="product" ng-repeat="item in items">
-						<li ng-click="addBillItem($index)">
+					<ul class="product">
+						<li  ng-repeat="item in items" ng-click="addBillItem($index)">
 							<img src="${pageContext.request.contextPath}{{item.image}}">
 							<div class="detail">
 								<div class="price">{{item.price}}$</div>
@@ -111,31 +111,13 @@
 								<td></td>
 							</tr>
 						</thead>
-						<tbody ng-repeat="billitem in bills">
-							<tr>
+						<tbody>
+							<tr ng-repeat="billitem in bills">
 								<td>{{billitem.productName}}</td>
 								<td>1</td>
 								<td class="bill-price">{{billitem.price}}</td>
 								<td><a href="#" class="btn btn-danger" ng-click="removeBillItem($index)"><i class="fa fa-times"></i></a></td>
 							</tr>
-							<!-- <tr>
-								<td>Rum Rasin (S)</td>
-								<td>2</td>
-								<td class="bill-price">$125</td>
-								<td><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
-							</tr>
-							<tr>
-								<td>Almond Rotta</td>
-								<td>2</td>
-								<td class="bill-price">$50</td>
-								<td><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
-							</tr>
-							<tr>
-								<td>Rosetta Creme (L)</td>
-								<td>1</td>
-								<td class="bill-price">$35</td>
-								<td><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
-							</tr> -->
 						</tbody>
 					</table>
 					<!-- bill total -->
@@ -159,7 +141,42 @@
 				<div class="command-box">
 					<a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
 					<a href="#" class="btn btn-success"><i class="fa fa-save"></i> Save</a>
-					<a href="#" class="btn btn-primary btn-lg pull-right">Checkout</a>
+					<a href="#" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#bill-slip">Checkout</a>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="bill-slip" rolw="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+			        	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			       	 	<h4 class="modal-title" id="myModalLabel">{{bill_no}}</h4>
+			      	</div>
+			     	<div class="modal-body">
+			     		<table class="table">
+			     			<thead></thead>
+			     			<tbody>
+			     				<tr>
+			     					<td><h2 >Total</h2></td>
+			     					<td><h2 align="right"> {{netPrice()}}</h2></td>
+			     				</tr>
+			     				<tr>
+			     					<td><h2>Changes</h2></td>
+			     					<td><h2 align="right"> {{money - netPrice()}}</h2></td>
+			     				</tr>
+			     				<tr>
+			     					<td><h2>Amount</h2></td>
+			     					<td align="right"><input type="number" class="input-large" ng-model="money"/></td>
+			     				</tr>
+			     			</tbody>
+			     		</table>
+			     		
+			        	
+			      	</div>
+			      	<div class="modal-footer">
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        	<button type="button" class="btn btn-primary">Print</button>
+			      	</div>
 				</div>
 			</div>
 		</div>

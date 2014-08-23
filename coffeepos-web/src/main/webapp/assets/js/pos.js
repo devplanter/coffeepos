@@ -2,6 +2,12 @@
  * 
  */
 
+$().ready(function(){
+	/*$('#bill-slip').modal({
+		keyboard: true
+	});*/
+});
+
 function PosController($scope){
 	//$scope.netPrice = 0.0;
 	//$scope.totalVat = 0.0;
