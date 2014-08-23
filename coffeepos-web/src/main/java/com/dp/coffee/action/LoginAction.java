@@ -25,7 +25,6 @@ import com.dp.coffee.facade.LoginFacade;
 import com.dp.coffee.util.StringUtil;
 import com.dp.coffee.util.UniqueId;
 import com.google.inject.Inject;
-import com.opensymphony.xwork2.ActionContext;
 
 public class LoginAction extends BaseAction {
 	private Log log = LogFactory.getLog(LoginAction.class);
