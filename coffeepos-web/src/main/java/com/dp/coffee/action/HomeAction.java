@@ -19,6 +19,9 @@ package com.dp.coffee.action;
 public class HomeAction extends BaseAction {
 	
 	public String execute() {
+		System.out.println(sessionId);
+		System.out.println(userId);
+		
 		return SUCCESS;
 	}
 	
