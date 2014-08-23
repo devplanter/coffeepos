@@ -1,5 +1,6 @@
 0.0.1
 
+- [Ekkasit] Update POS logout and back to home menu 
 - [Supakpong] alter table 'product' and 'bill_item' by adding 'percent_of_tax' column to keep tax of selling
-- [Ekkasit] Initial Version
 - [Ekkasit] Update login security - Username: admin Password: 1234
+- [Ekkasit] Initial Version
