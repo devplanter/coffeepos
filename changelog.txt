@@ -1,3 +1,4 @@
 0.0.1
 
 - [Ekkasit] Initial Version
+- [Ekkasit] Update login security - Username: admin Password: 1234
