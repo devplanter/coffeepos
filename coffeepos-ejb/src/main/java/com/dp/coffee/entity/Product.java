@@ -17,12 +17,19 @@
 package com.dp.coffee.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
+@Table(name = "product")
+@NamedQueries({
+	@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"),
+	@NamedQuery(name = Product.QUERY_BY_CATEGORY, query = "SELECT p FROM Product p WHERE p.category.id = ?1")
+})
+
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -72,6 +79,9 @@ public class Product implements Serializable {
 
 	@Column(name = "unit_price")
 	private float unitPrice;
+	
+	@Column(name = "cost_price")
+	private float costPrice;
 
 	@Column(name = "update_by")
 	private String updateBy;
@@ -91,6 +101,12 @@ public class Product implements Serializable {
 	@JoinColumn(name = "category_id")
 	private Category category;
 
+	@Column(name = "percent_of_tax")
+	private float percentOfTax;
+	
+	public static final String QUERY_BY_CATEGORY = "Product.byCategoryId";
+	
+	// Constructor
 	public Product() {
 	}
 
@@ -275,5 +291,23 @@ public class Product implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public float getPercentOfTax() {
+		return percentOfTax;
+	}
+
+	public void setPercentOfTax(float percentOfTax) {
+		this.percentOfTax = percentOfTax;
+	}
+
+	public float getCostPrice() {
+		return costPrice;
+	}
+
+	public void setCostPrice(float costPrice) {
+		this.costPrice = costPrice;
+	}
+	
+	
 
 }
