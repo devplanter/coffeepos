@@ -27,7 +27,7 @@ import java.util.List;
 @Table(name = "product")
 @NamedQueries({
 	@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"),
-	@NamedQuery(name = Product.QUERY_BY_CATEGORY, query = "SELECT p FROM Product p WHERE p.category.id = ?1")
+	@NamedQuery(name = Product.QUERY_BY_CATEGORY, query = "SELECT p FROM Product p WHERE p.category.categoryId = ?1")
 })
 
 public class Product implements Serializable {
