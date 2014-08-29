@@ -17,7 +17,9 @@
 package com.dp.coffee.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.List;
 
@@ -91,6 +93,8 @@ public class Product implements Serializable {
 	@JoinColumn(name = "category_id")
 	private Category category;
 
+	@Column(name = "percent_of_tax")
+	private float percentOfTax;
 	public Product() {
 	}
 
@@ -274,6 +278,14 @@ public class Product implements Serializable {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public float getPercentOfTax() {
+		return percentOfTax;
+	}
+
+	public void setPercentOfTax(float percentOfTax) {
+		this.percentOfTax = percentOfTax;
 	}
 
 }

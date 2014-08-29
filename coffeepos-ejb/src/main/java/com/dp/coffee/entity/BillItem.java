@@ -44,6 +44,9 @@ public class BillItem implements Serializable {
 
 	@Column(name = "unit_price")
 	private float unitPrice;
+	
+	@Column(name = "percent_of_tax")
+	private float percentOfTax;
 
 	@ManyToOne
 	@JoinColumn(name = "product_id")
@@ -126,6 +129,14 @@ public class BillItem implements Serializable {
 
 	public void setBill(Bill bill) {
 		this.bill = bill;
+	}
+
+	public float getPercentOfTax() {
+		return percentOfTax;
+	}
+
+	public void setPercentOfTax(float percentOfTax) {
+		this.percentOfTax = percentOfTax;
 	}
 
 }
