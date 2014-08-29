@@ -24,7 +24,12 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
+@Table(name = "product")
+@NamedQueries({
+	@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"),
+	@NamedQuery(name = Product.QUERY_BY_CATEGORY, query = "SELECT p FROM Product p WHERE p.category.id = ?1")
+})
+
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -95,6 +100,10 @@ public class Product implements Serializable {
 
 	@Column(name = "percent_of_tax")
 	private float percentOfTax;
+	
+	public static final String QUERY_BY_CATEGORY = "Product.byCategoryId";
+	
+	// Constructor
 	public Product() {
 	}
 
