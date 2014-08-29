@@ -79,6 +79,9 @@ public class Product implements Serializable {
 
 	@Column(name = "unit_price")
 	private float unitPrice;
+	
+	@Column(name = "cost_price")
+	private float costPrice;
 
 	@Column(name = "update_by")
 	private String updateBy;
@@ -296,5 +299,15 @@ public class Product implements Serializable {
 	public void setPercentOfTax(float percentOfTax) {
 		this.percentOfTax = percentOfTax;
 	}
+
+	public float getCostPrice() {
+		return costPrice;
+	}
+
+	public void setCostPrice(float costPrice) {
+		this.costPrice = costPrice;
+	}
+	
+	
 
 }

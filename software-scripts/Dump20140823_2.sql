@@ -193,6 +193,7 @@ CREATE TABLE `product` (
   `category_id` int(11) DEFAULT NULL,
   `description` varchar(150) DEFAULT NULL,
   `unit_price` float DEFAULT NULL,
+  `cost_price` float DEFAULT NULL,
   `percent_of_tax` float DEFAULT NULL,
   `stock_unit` int(11) DEFAULT NULL,
   `image` varchar(50) DEFAULT NULL,
