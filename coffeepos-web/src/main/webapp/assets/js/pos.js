@@ -8,15 +8,26 @@ $().ready(function(){
 	});*/
 });
 
-function PosController($scope){
+var app = angular.module('app', []);
+app.controller('PosController', function($scope, $http) {
 	//$scope.netPrice = 0.0;
 	//$scope.totalVat = 0.0;
 	$scope.bills = [];
+	
+	/*
 	$scope.items = [
 	    {productName:"Cuppuccino Cold", price:30, vat:0.07, image:"/img/01.jpg"},
 	    {productName:"Latte cream", price:40, vat:0.07, image:"/img/02.jpg"}
 	];
+	*/
 	
+	$http({
+        method: "get",
+        url: "../api/v1/product",
+    }).success(function(result) {
+    	$scope.items = result.product;
+    });
+    	
 	$scope.addBillItem = function(index){
 		var billItem = new Object();
 		billItem.productName = $scope.items[index].productName;
@@ -53,4 +64,4 @@ function PosController($scope){
 		var net = $scope.totalPrice()+$scope.totalVat();
 		return net.toFixed(2);
 	}
-}
+});
