@@ -19,20 +19,24 @@ package com.dp.coffee.entity;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import java.util.Date;
 import java.util.List;
 
+@XmlRootElement
 @Entity
 @Table(name = "product")
 @NamedQueries({
-	@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"),
+	@NamedQuery(name = Product.FIND_ALL, query = "SELECT p FROM Product p WHERE p.isActive='Y' and p.isDelete='N'"),
 	@NamedQuery(name = Product.QUERY_BY_CATEGORY, query = "SELECT p FROM Product p WHERE p.category.categoryId = ?1")
 })
 
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	public static final String FIND_ALL = "Product.findAll";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "product_id")
