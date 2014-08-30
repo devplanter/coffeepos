@@ -1,13 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" language="java"%>
 <%@ taglib prefix="s" uri="struts-tags"%>
 
-<html ng-app>
+<html>
 <head>
 	<title>Test</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/pos.css">
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/pos.js"></script>
 </head>
 <body>
+	<div ng-app="app">
 	<div class="navbar navbar-inverse navbar-static-top">
 		<div class="container">
 			<div class="col-md-6">
@@ -91,9 +92,9 @@
 				<div class="product-box" >
 					<ul class="product">
 						<li  ng-repeat="item in items" ng-click="addBillItem($index)">
-							<img src="${pageContext.request.contextPath}{{item.image}}">
+							<img ng-src="${pageContext.request.contextPath}{{item.image}}">
 							<div class="detail">
-								<div class="price">{{item.price}}$</div>
+								<div class="price">{{item.unitPrice}}$</div>
 								<div class="title">{{item.productName}}</div>
 							</div>
 						</li>
@@ -125,7 +126,7 @@
 							<tr ng-repeat="billitem in bills">
 								<td>{{billitem.productName}}</td>
 								<td>1</td>
-								<td class="bill-price">{{billitem.price}}</td>
+								<td class="bill-price">{{billitem.unitPrice}}</td>
 								<td><a href="#" class="btn btn-danger" ng-click="removeBillItem($index)"><i class="fa fa-times"></i></a></td>
 							</tr>
 						</tbody>
@@ -190,6 +191,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>
