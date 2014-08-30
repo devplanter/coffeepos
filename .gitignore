@@ -1,5 +1,8 @@
 coffeepos-ejb/target/
 coffeepos-web/target/
+persistence.xml
+MANIFEST.MF
 .settings/
 .classpath/
 .project
+.DS_Store
