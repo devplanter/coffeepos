@@ -88,5 +88,6 @@
 		<action name="pos" class="com.dp.coffee.action.PosAction">
 			<result name="success">/jsp/pos/pos.jsp</result>
 		</action>
+		
 	</package>
 </struts>
