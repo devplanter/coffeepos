@@ -17,52 +17,68 @@
 package com.dp.coffee.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
-@NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")
+@NamedQueries({ 
+	@NamedQuery(name = Category.FIND_ALL, query = "SELECT c FROM Category c WHERE c.isActive='Y' and c.isDelete='N'"), 
+	@NamedQuery(name = Category.FIND_BY_ID, query = "SELECT c FROM Category c WHERE c.isActive='Y' and c.isDelete='N' and c.categoryId=?1"), 
+	@NamedQuery(name = Category.FIND_BY_NAME, query = "SELECT c FROM Category c WHERE c.isActive='Y' and c.isDelete='N' and c.categoryName like ?1")
+})
 public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
+	public static final String FIND_ALL = "Category.findAll";
+	public static final String FIND_BY_ID = "Category.findById";
+	public static final String FIND_BY_NAME = "Category.findByName";
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="category_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "category_id")
 	private int categoryId;
 
-	@Column(name="category_name")
+	@Column(name = "category_name")
 	private String categoryName;
 
-	@Column(name="create_by")
+	@Column(name = "create_by")
 	private String createBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
+	@Column(name = "create_date")
 	private Date createDate;
 
 	private String description;
 
-	@Column(name="is_active")
+	@Column(name = "is_active")
 	private String isActive;
 
-	@Column(name="is_delete")
+	@Column(name = "is_delete")
 	private String isDelete;
 
-	@Column(name="update_by")
+	@Column(name = "update_by")
 	private String updateBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
+	@Column(name = "update_date")
 	private Date updateDate;
 
 	@ManyToOne
-	@JoinColumn(name="site_id")
+	@JoinColumn(name = "site_id")
 	private Site site;
-
-	@OneToMany(mappedBy="category")
-	private List<Product> products;
 
 	public Category() {
 	}
@@ -145,28 +161,6 @@ public class Category implements Serializable {
 
 	public void setSite(Site site) {
 		this.site = site;
-	}
-
-	public List<Product> getProducts() {
-		return this.products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
-
-	public Product addProduct(Product product) {
-		getProducts().add(product);
-		product.setCategory(this);
-
-		return product;
-	}
-
-	public Product removeProduct(Product product) {
-		getProducts().remove(product);
-		product.setCategory(null);
-
-		return product;
 	}
 
 }
