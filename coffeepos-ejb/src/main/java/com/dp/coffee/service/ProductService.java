@@ -10,6 +10,10 @@ public class ProductService extends AbstractService<Product>{
 	public ProductService(Class<Product> entityClass) {
 		super(entityClass);
 	}
+	
+	public ProductService() {
+		super(Product.class);
+	}
 
 	public List<Product>findByCategory(Category category){
 		return null;
@@ -20,11 +24,15 @@ public class ProductService extends AbstractService<Product>{
 	}
 	
 	// This method has not passed the unit testing yet.
-	public List<Product>findByCategoryId(String id){
+	public List<Product>findByCategoryId(final int id){
 		return findAll(Product.QUERY_BY_CATEGORY, id);
 	}
 	
 	public Product createProduct(Product product){
 		return create(product);
+	}
+	
+	public List<Product> findAll() {
+		return findAll(Product.FIND_ALL);
 	}
 }
