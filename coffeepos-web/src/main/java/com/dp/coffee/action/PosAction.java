@@ -20,7 +20,7 @@ public class PosAction extends BaseAction {
 
 	public String execute() {
 		if (checkSession() == null) {
-			return LOGIN;
+			//return LOGIN;
 		}
 		return SUCCESS;
 	}
