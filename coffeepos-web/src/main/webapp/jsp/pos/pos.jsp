@@ -134,11 +134,11 @@
 					<!-- bill total -->
 					<table id="bill-total">
 						<tr>
-							<td>Tax (7%)</td>
+							<td>Tax</td>
 							<td>{{getTotalVat()}}</td>
 						</tr>
 						<tr>
-							<td>Discount (10%)</td>
+							<td>Discount</td>
 							<td>0</td>
 						</tr>
 						<tr>

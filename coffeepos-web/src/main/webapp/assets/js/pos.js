@@ -31,8 +31,8 @@ app.controller('PosController', function($scope, $http) {
 	$scope.addBillItem = function(index){
 		var billItem = new Object();
 		billItem.productName = $scope.items[index].productName;
-		billItem.price = $scope.items[index].price;
-		billItem.vat = $scope.items[index].vat;
+		billItem.unitPrice = $scope.items[index].unitPrice;
+		billItem.vat = $scope.items[index].percentOfTax;
 		$scope.bills.splice($scope.bills.length, 0, billItem);
 	};
 	
@@ -43,7 +43,7 @@ app.controller('PosController', function($scope, $http) {
 	$scope.totalPrice = function(){
 		var total = 0.0;
 		for(var i=0; i<$scope.bills.length;i++){
-			total += $scope.bills[i].price*(1.0-$scope.bills[i].vat);
+			total += $scope.bills[i].unitPrice*(1.0-$scope.bills[i].vat);
 		}
 		return total;
 	}
@@ -51,7 +51,7 @@ app.controller('PosController', function($scope, $http) {
 	$scope.totalVat = function(){
 		var vat = 0.0;
 		for(var i=0; i<$scope.bills.length;i++){
-			vat += $scope.bills[i].price*($scope.bills[i].vat);
+			vat += $scope.bills[i].unitPrice*($scope.bills[i].vat);
 		}
 		return vat;
 	}
