@@ -13,6 +13,7 @@ app.controller('PosController', function($scope, $http) {
 	//$scope.netPrice = 0.0;
 	//$scope.totalVat = 0.0;
 	$scope.bills = [];
+	$scope.change = 0.00;
 	
 	$http({
         method: "get",
@@ -57,4 +58,14 @@ app.controller('PosController', function($scope, $http) {
 		var net = $scope.totalPrice()+$scope.totalVat();
 		return net.toFixed(2);
 	}
+	
+	$scope.updateChanges = function(){
+		$scope.change = $scope.money - $scope.totalPrice();
+		if($scope.change<0){
+			$scope.change = 0.00;
+		}
+		return; // change;
+	}
+	
+	$scope.getChanges = function(){ return $scope.change.toFixed(2); }
 });

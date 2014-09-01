@@ -164,7 +164,7 @@
 			       	 	<h4 class="modal-title" id="myModalLabel">{{bill_no}}</h4>
 			      	</div>
 			     	<div class="modal-body">
-			     		<table class="table">
+			     		<!-- <table class="table">
 			     			<thead></thead>
 			     			<tbody>
 			     				<tr>
@@ -180,8 +180,19 @@
 			     					<td align="right"><input type="number" class="input-large" ng-model="money"/></td>
 			     				</tr>
 			     			</tbody>
-			     		</table>
-			     		
+			     		</table> -->
+			     		<div class="row">
+			     			<div class="col-md-4"><h2>Total</h2></div>
+			     			<div class="col-md-4"><h2 align="right"> {{netPrice()}}</h2></div>
+			     		</div>
+			     		<div class="row">
+			     			<div class="col-md-6"><h2>Changes</h2></div>
+			     			<div class="col-md-6"><h2 align="right"> {{change.toFixed(2)}}</h2></div>
+			     		</div>
+			     		<div class="row ">
+			     			<div class="col-md-6"><h2>Amount</h2></div>
+			     			<div class="col-md-6"><h2 align="right"><input type="number" name="input-money" class="money-amount form-control input-large" placeholder="" ng-change="updateChanges()" ng-model="money"/></h2></div>
+			     		</div>
 			        	
 			      	</div>
 			      	<div class="modal-footer">
